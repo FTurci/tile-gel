@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gel collapse viewer</title>
+    <title>Gel collapse Viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.js"></script>
     <style>
-    body {
-      font-family: "Arial", sans-serif;
-    }
-  </style>
+            body {
+                margin: 20px;
+                padding: 0px;
+                justify-content: center;
+                align-items: center;
+                font-family: "Arial", sans-serif;
+            }
         #openseadragon {
             width: 100%;
             height: 800px;
         }
+        
+        #subtitle {
+            font-size: 0.8em ;
+        }
     </style>
 </head>
-<h1>Gel collapse viewer</h1>
-Select a specific time.
 <body>
     <div>
+        <h1>Gel collapse</h1>
+        <div id="subtitle">Data: Rui Cheng and C Patrick Royall. Visualisation: Francesco Turci.</div>
 
+        <p>Select a time:
+    
         <select id="tileSourceSelect">
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_image.dzi">0 min</option>
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_30min.dzi">30 min</option>
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_60min.dzi">60 min</option>
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_90min.dzi">90 min</option>
+            <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_120min.dzi">120 min</option>
 
           </select>
+        </p>
     </div>
     <div id="openseadragon"></div>
     <script>
