@@ -4,7 +4,6 @@
     <title>Gel collapse viewer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.js"></script>
     <style>
-          <style>
     body {
       font-family: "Arial", sans-serif;
     }
@@ -16,13 +15,16 @@
     </style>
 </head>
 <h1>Gel collapse viewer</h1>
-
+Select a specific time.
 <body>
     <div>
 
         <select id="tileSourceSelect">
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_image.dzi">0 min</option>
             <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_30min.dzi">30 min</option>
+            <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_60min.dzi">60 min</option>
+            <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_90min.dzi">90 min</option>
+
           </select>
     </div>
     <div id="openseadragon"></div>
