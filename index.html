@@ -11,14 +11,27 @@
     </style>
 </head>
 <body>
+    <div>
+
+        <select id="tileSourceSelect">
+            <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_image.dzi">0 min</option>
+            <option value="https://gels-heroku.s3.eu-west-2.amazonaws.com/large_30min.dzi">30 min</option>
+          </select>
+    </div>
     <div id="openseadragon"></div>
     <script>
-        OpenSeadragon({
-            id: "openseadragon",
-            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
-            tileSources: "https://gels-heroku.s3.eu-west-2.amazonaws.com/large_image.dzi"
-   
-        });
+ // Initialize OpenSeadragon with default tile source
+ const viewer = OpenSeadragon({
+      id: "openseadragon",
+      prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
+      tileSources: "https://gels-heroku.s3.eu-west-2.amazonaws.com/large_image.dzi"
+    });
+
+    // Function to update tile source based on select option
+    document.getElementById('tileSourceSelect').addEventListener('change', function() {
+      const selectedValue = this.value;
+      viewer.open(selectedValue); // Update the tile source dynamically
+    });
     </script>
 </body>
 </html>
