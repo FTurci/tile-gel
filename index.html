@@ -40,19 +40,36 @@
         </p>
     </div>
     <div id="openseadragon"></div>
-    <script>
- // Initialize OpenSeadragon with default tile source
- const viewer = OpenSeadragon({
-      id: "openseadragon",
-      prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
-      tileSources: "https://gels-heroku.s3.eu-west-2.amazonaws.com/large_0min.dzi"
-    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.js"></script>
+<script src="https://unpkg.com/openseadragon-scalebar@0.3.0/dist/openseadragon-scalebar.min.js"></script>
+<script>
+  // Initialize OpenSeadragon with default tile source
+  const viewer = OpenSeadragon({
+    id: "openseadragon",
+    prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
+    tileSources: "https://gels-heroku.s3.eu-west-2.amazonaws.com/large_0min.dzi",
+    showNavigator: true,
+  });
 
-    // Function to update tile source based on select option
-    document.getElementById('tileSourceSelect').addEventListener('change', function() {
-      const selectedValue = this.value;
-      viewer.open(selectedValue); // Update the tile source dynamically
-    });
-    </script>
+  // Add the scale bar
+  viewer.scalebar({
+    type: OpenSeadragon.ScalebarType.MICROMETER,
+    minWidth: "75px", 
+    pixelsPerMeter: 1538461.54,  // 0.65 micrometers per pixel
+    location: OpenSeadragon.ScalebarLocation.BOTTOM_RIGHT,
+    color: "black",
+    fontColor: "black",
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    barThickness: 2,
+  });
+
+  // Function to update tile source based on select option
+  document.getElementById('tileSourceSelect').addEventListener('change', function() {
+    const selectedValue = this.value;
+    viewer.open(selectedValue); // Update the tile source dynamically
+  });
+</script>
+ 
+    
 </body>
 </html>
